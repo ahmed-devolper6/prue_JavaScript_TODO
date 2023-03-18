@@ -1,120 +1,166 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    min-width: 250px;
-  }
-  
-  /* Include the padding and border in an element's total width and height */
-  * {
-    box-sizing: border-box;
-  }
-  
-  /* Remove margins and padding from the list */
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    list-style-type: none;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
-    
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
-    background: #f9f9f9;
-  }
-  
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #ddd;
-  }
-  
-  /* When clicked on, add a background color and strike out text */
-  ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-  
-  /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
-  
-  /* Style the close button */
-  .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-  }
-  
-  .close:hover {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  /* Style the header */
-  .header {
-    background-color: #f44336;
-    padding: 30px 40px;
-    color: white;
-    text-align: center;
-  }
-  
-  /* Clear floats after the header */
-  .header:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the input */
-  input {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-  }
-  
-  /* Style the "Add" button */
-  .addBtn {
-    padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 0;
-  }
-  
-  .addBtn:hover {
-    background-color: #bbb;
-  }
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  padding-top: 50px;
+}
+
+.warning {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  background-color: red;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  margin: 0 auto;
+  background-color: #303D74;
+}
+
+section {
+  position: relative;
+  width: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #265B6A;
+}
+
+.title-primary {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.title-secondary {
+  font-size: 20px;
+}
+
+input,
+textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding-left: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.input-label {
+  display: block;  
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #2A7E43;
+}
+
+span.left-side {
+  display: flex;
+  width: 70%;
+}
+
+span.text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.li-text-edit {
+  background-color: #2A7E43;
+  color: #fff;
+  padding: 0;
+  outline: none;
+  border: 2px inset grey;
+  display: none;
+}
+
+.btn {
+  width: 29px;
+  height: 29px;
+}
+
+.btn-add {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background-color: #2A7E43;
+  color: #fff;
+}
+
+.btn-clear {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-check {
+  background-color: #fff;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background-color: #03396c;
+  color: #fff;
+}
+
+.btn-remove {
+  background-color: red;
+  color: #fff;
+}
+
+.btn-warning-remove {
+  background-color: red;
+  color: #fff;
+}
+
+.fa-check {
+  color: #fff;
+}
+
+/* Classes manipulated by JS*/
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.black-tick {
+  color: #000;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+.btn-edit-margin {
+  margin-right: 5px;
+}

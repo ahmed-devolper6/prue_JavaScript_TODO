@@ -1,17 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Todo</title>
+
 </head>
 <body>
+    <main>
+        <!-- title -->
+        <h1 class="title-primary">Todo List</h1>              
+        <form id = "todo">
+            <section>
+                <label for="todo" class="input-label">Add New</label>
+                <input type="text" name="todo" id="task" placeholder="type here...">
+                <button type = "sumbit" class="btn btn-add"><i class="fas fa-plus"></i></button>
+              </section>
+        </form>
+        <!-- add todo -->
 
-    <div id="myDIV" class="header">
-        <h2 style="margin:5px">My To Do List</h2>
-        <input type="text" id="myInput" placeholder="Title...">
-        <span class="addBtn">Add</span>
-    </div>
+        
+        <!-- filter todos -->
+        <section>
+          <label for="filter" class="input-label">Filter</label>
+          <input type="text" name="filter" id="filter" placeholder="type here...">
+          <button onclick = "FillTasksPagefliters()" >fliter</button>
+        </section>  
+        
+        <!-- active todos -->
+        <section>
+          <h2 class="title-secondary title-active">Active</h2>
+          <ul class="list list-active" id = "UlTodO">
+            <li class="list-item">
+              <span class="left-side">
+                <button class="btn btn-check btn-check-active">
+                  <i class="fas fa-check fa-check-active"></i>
+                </button>
+                <span class="text">Walk the dog</span>
+                <textarea cols="25" rows="3" class="li-text-edit"></textarea>
+              </span>
+              <span class="right-side">
+                <button class="btn btn-edit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn btn-remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </span> 
+            </li>
+            
 
-<script src="core.js"></script>
+          </ul>
+        </section>
+      
+        <!-- completed todos -->
+        <section>
+          <h2 class="title-secondary title-completed">Completed</h2>
+          <ul class="list list-completed" id = "active">
+            <li class="list-item">
+              <span class="left-side">
+                <button class="btn btn-check btn-check-completed">
+                  <i class="fas fa-check black-tick fa-check-completed"></i>
+                </button>
+                <span class="text strike-through">See the doctor</span>
+                <textarea cols="25" rows="3" class="li-text-edit"></textarea>
+              </span>
+              <span class="right-side">
+                <button class="btn btn-edit">
+                  <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn btn-remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </span>
+            </li>
+          </ul>
+        </section>
+      
+        <!-- clear all option -->
+        <button onclick = "clearall()" class="btn-clear">CLEAR ALL</button>
+        
+      </main>
+      
+      <!-- Warning messages -->
+      <div class="warning">
+        <span class="message">Type a todo first!</span>
+        <button class="btn btn-warning-remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+
+      <script src = "core.js"></script>
 </body>
 </html>
+
+  
+  
+  
+  
